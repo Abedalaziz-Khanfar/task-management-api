@@ -1,0 +1,68 @@
+@Task_Management_HostAddress = https://localhost:7287
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIzIiwiVXNlcm5hbWUiOiJhYmVkIiwiRW1haWwiOiJhYmVkQGdtYWlsLmNvbSIsImV4cCI6MTc4MjE3MDQwNCwiaXNzIjoiVGFza01hbmFnZW1lbnRBUEkiLCJhdWQiOiJUYXNrTWFuYWdlbWVudFVzZXJzIn0.Xc7O-lXTB2LUfIyzaYi2mfXQB9jxelC40y-1sqOCAkU
+
+### Signup
+POST {{Task_Management_HostAddress}}/api/Auth/Signup
+Content-Type: application/json
+
+{
+  "username": "abed",
+  "email": "abed@gmail.com",
+  "password": "123456"
+}
+
+### Login
+POST {{Task_Management_HostAddress}}/api/Auth/Login
+Content-Type: application/json
+
+{
+  "email": "abed@gmail.com",
+  "password": "123456"
+}
+
+### Add Task
+POST {{Task_Management_HostAddress}}/api/Tasks/Add
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Study ASP.NET",
+  "description": "Finish Assignment",
+  "fromDate": "2026-06-22T10:00:00",
+  "toDate": "2026-06-25T10:00:00",
+  "statusId": 2
+}
+
+### Get Tasks By Criteria
+GET {{Task_Management_HostAddress}}/api/Tasks/GetByCriteria
+Authorization: Bearer {{token}}
+
+### Get Tasks By Criteria With Title
+GET {{Task_Management_HostAddress}}/api/Tasks/GetByCriteria?title=Study
+Authorization: Bearer {{token}}
+
+### Get Tasks By Criteria With Status
+GET {{Task_Management_HostAddress}}/api/Tasks/GetByCriteria?statusId=2
+Authorization: Bearer {{token}}
+
+### Get Task By Id
+GET {{Task_Management_HostAddress}}/api/Tasks/GetById/2
+Authorization: Bearer {{token}}
+
+### Update Task
+PUT {{Task_Management_HostAddress}}/api/Tasks/Update
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": 1,
+  "title": "Study ASP.NET Updated",
+  "description": "Finish Assignment Updated",
+  "fromDate": "2026-06-22T10:00:00",
+  "toDate": "2026-06-26T10:00:00",
+  "statusId": 3
+}
+
+### Delete Task
+DELETE {{Task_Management_HostAddress}}/api/Tasks/Delete/1
+Authorization: Bearer {{token}}
