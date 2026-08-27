@@ -1,0 +1,243 @@
+﻿:host {
+  --navy-deep: #101a30;
+  --navy-mid: #1b2545;
+  --amber: #f5a623;
+  --off-white: #faf9f7;
+  --ink: #16192b;
+  --slate: #6b7280;
+  --mint: #34d399;
+  --line: #e8e6e1;
+
+  display: block;
+  min-height: 100vh;
+  background: var(--off-white);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+/* ---------- Top bar (light, not the heavy navy full-bleed bar) ---------- */
+.app-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-navbar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.18);
+}
+
+.logout-btn {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.logout-btn:hover {
+  background: var(--off-white);
+  border-color: var(--navy-deep);
+}
+
+/* ---------- Layout ---------- */
+.page-body { padding-top: 0.5rem; }
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ---------- Stat cards ---------- */
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(16, 26, 48, 0.04);
+}
+
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--navy-deep);
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--slate);
+  margin-top: 0.15rem;
+}
+
+/* ---------- Panels (filter card + table card + modal) ---------- */
+.panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(16, 26, 48, 0.04);
+}
+
+/* ---------- Fields ---------- */
+.field-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+}
+
+/* ---------- Buttons ---------- */
+.btn-solid, .btn-ghost, .btn-amber, .btn-danger-solid {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.1rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-solid {
+  background: var(--navy-deep);
+  color: #fff;
+}
+.btn-solid:hover:not(:disabled) { background: var(--navy-mid); }
+.btn-solid:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-amber {
+  background: var(--amber);
+  color: #1a1206;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.1rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+.btn-amber:hover { filter: brightness(0.94); }
+
+.btn-ghost {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover { background: var(--off-white); }
+
+.btn-danger-solid {
+  background: #d64545;
+  color: #fff;
+}
+.btn-danger-solid:hover { background: #bf3a3a; }
+
+.btn-icon {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-inline-end: 0.4rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.btn-icon-edit { color: var(--navy-deep); }
+.btn-icon-edit:hover { background: rgba(16, 26, 48, 0.06); border-color: var(--navy-deep); }
+.btn-icon-delete { color: #bf3a3a; }
+.btn-icon-delete:hover { background: rgba(191, 58, 58, 0.08); border-color: #bf3a3a; }
+
+/* ---------- Table ---------- */
+.task-table { width: 100%; border-collapse: collapse; }
+.task-table thead th {
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+  border-bottom: 1px solid var(--line);
+  padding: 0.75rem 0.5rem;
+}
+.task-table tbody td {
+  padding: 0.85rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+.task-table tbody tr:hover { background: var(--off-white); }
+.task-table tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- Modals ---------- */
+.modal-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 26, 48, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+.modal-box {
+  width: 100%;
+  max-width: 480px;
+  margin: 1rem;
+  padding: 0;
+  overflow: hidden;
+}
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.modal-content-pad { padding: 1.25rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .app-navbar { padding: 0.9rem 1.2rem; }
+}

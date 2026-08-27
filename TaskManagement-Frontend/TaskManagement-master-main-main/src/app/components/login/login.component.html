@@ -1,0 +1,38 @@
+﻿<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+  <div class="card shadow-sm" style="width: 100%; max-width: 400px;">
+    <div class="card-body p-4">
+
+      <h5 class="text-center fw-bold mb-1">Task Management</h5>
+      <p class="text-center text-muted small mb-4">Sign in to your account</p>
+
+      <ul class="nav nav-tabs mb-4">
+        <li class="nav-item">
+          <span class="nav-link active">Sign In</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" routerLink="/signup" style="cursor: pointer;">Create Account</span>
+        </li>
+      </ul>
+
+      <div *ngIf="errorMessage" class="alert alert-danger py-2 small">{{ errorMessage }}</div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="you@example.com">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Sign In</button>
+      </form>
+
+      <p class="text-center text-muted small mt-3 mb-0">
+        No account yet? <a routerLink="/signup">Create one</a>
+      </p>
+
+    </div>
+  </div>
+</div>
